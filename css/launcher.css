@@ -1,0 +1,250 @@
+/* ════════════════════════════════════════════════════════════════
+   launcher.css — Styles du launcher (index.html)
+   Dépend des custom properties définies dans style.css.
+   ════════════════════════════════════════════════════════════════ */
+
+/* ── Reset minimal (launcher est une page autonome) ─────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
+
+body {
+  background : var(--clr-bg);
+  color      : rgba(var(--rgb-white), 0.8);
+  font-family: var(--font-mono);
+  min-height : 100vh;
+  overflow-x : hidden;
+}
+
+/* ── Scanlines overlay ───────────────────────────────────────────── */
+body::before {
+  content    : '';
+  position   : fixed;
+  inset      : 0;
+  background : repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.07) 2px,
+    rgba(0, 0, 0, 0.07) 4px
+  );
+  pointer-events: none;
+  z-index    : 9999;
+}
+
+/* ── Header ──────────────────────────────────────────────────────── */
+header {
+  padding       : 48px 48px 32px;
+  border-bottom : 1px solid rgba(var(--rgb-gold), 0.12);
+  position      : relative;
+}
+.header-eyebrow {
+  font-size     : 10px;
+  letter-spacing: 0.35em;
+  color         : rgba(var(--rgb-gold), 0.5);
+  text-transform: uppercase;
+  margin-bottom : 12px;
+}
+.header-title {
+  font-size     : 28px;
+  font-weight   : 700;
+  letter-spacing: 0.12em;
+  color         : rgba(var(--rgb-white), 0.92);
+  text-transform: uppercase;
+  line-height   : 1;
+}
+.header-title span { color: rgba(var(--rgb-gold), 1); }
+.header-subtitle {
+  font-size     : 11px;
+  letter-spacing: 0.15em;
+  color         : rgba(var(--rgb-white), 0.25);
+  margin-top    : 10px;
+}
+
+/* Ligne décorative animée */
+.header-line {
+  position  : absolute;
+  bottom    : -1px;
+  left      : 48px;
+  height    : 1px;
+  width     : 0;
+  background: rgba(var(--rgb-gold), 0.7);
+  animation : line-grow 0.8s 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+@keyframes line-grow { to { width: 120px; } }
+
+/* ── Barre de filtres ────────────────────────────────────────────── */
+.filters {
+  padding      : 20px 48px;
+  display      : flex;
+  gap          : 8px;
+  flex-wrap    : wrap;
+  border-bottom: 1px solid rgba(var(--rgb-white), 0.04);
+}
+.filter-btn {
+  background    : transparent;
+  border        : 1px solid rgba(var(--rgb-white), 0.1);
+  border-radius : 3px;
+  color         : rgba(var(--rgb-white), 0.3);
+  font-family   : var(--font-mono);
+  font-size     : 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding       : 4px 10px;
+  cursor        : pointer;
+  transition    : all 0.15s;
+}
+.filter-btn:hover,
+.filter-btn.active {
+  border-color: rgba(var(--rgb-gold), 0.5);
+  color       : rgba(var(--rgb-gold), 0.9);
+  background  : rgba(var(--rgb-gold), 0.06);
+}
+
+/* ── Grille de maps ──────────────────────────────────────────────── */
+.maps-grid {
+  display              : grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap                  : 1px;
+  padding              : 1px;
+  background           : rgba(var(--rgb-white), 0.05);
+  margin               : 32px 48px;
+  border               : 1px solid rgba(var(--rgb-white), 0.05);
+}
+
+/* ── Carte map ───────────────────────────────────────────────────── */
+.map-card {
+  background : var(--clr-surface);
+  position   : relative;
+  overflow   : hidden;
+  cursor     : pointer;
+  transition : background 0.2s;
+  opacity    : 0;
+  transform  : translateY(12px);
+  animation  : card-in 0.4s forwards;
+}
+.map-card:nth-child(1) { animation-delay: 0.05s; }
+.map-card:nth-child(2) { animation-delay: 0.12s; }
+.map-card:nth-child(3) { animation-delay: 0.19s; }
+.map-card:nth-child(4) { animation-delay: 0.26s; }
+.map-card:nth-child(5) { animation-delay: 0.33s; }
+.map-card:nth-child(6) { animation-delay: 0.40s; }
+@keyframes card-in { to { opacity: 1; transform: translateY(0); } }
+
+.map-card:hover                     { background: #12121c; }
+.map-card:hover .card-thumb-overlay { opacity: 0.4; }
+.map-card:hover .card-launch        { opacity: 1; transform: translateY(0); }
+.map-card:hover .card-border-top    { width: 100%; }
+
+/* Ligne top au hover */
+.card-border-top {
+  position  : absolute;
+  top: 0; left: 0;
+  height    : 1px;
+  width     : 0;
+  background: rgba(var(--rgb-gold), 0.8);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index   : 2;
+}
+
+/* Thumbnail */
+.card-thumb {
+  width     : 100%;
+  height    : 160px;
+  position  : relative;
+  overflow  : hidden;
+  background: #08080f;
+}
+.card-thumb img {
+  width      : 100%;
+  height     : 100%;
+  object-fit : cover;
+  display    : block;
+  filter     : saturate(0.6) brightness(0.7);
+  transition : filter 0.3s, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.map-card:hover .card-thumb img {
+  filter   : saturate(0.8) brightness(0.85);
+  transform: scale(1.04);
+}
+.card-thumb-placeholder {
+  width           : 100%;
+  height          : 100%;
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+  font-size       : 32px;
+  opacity         : 0.15;
+  background      : repeating-linear-gradient(
+    45deg,
+    transparent, transparent 8px,
+    rgba(var(--rgb-white), 0.02) 8px,
+    rgba(var(--rgb-white), 0.02) 16px
+  );
+}
+.card-thumb-overlay {
+  position  : absolute;
+  inset     : 0;
+  background: linear-gradient(to top, var(--clr-surface) 0%, transparent 60%);
+  opacity   : 0.7;
+  transition: opacity 0.3s;
+}
+
+/* Bouton lancer */
+.card-launch {
+  position      : absolute;
+  bottom        : 12px;
+  right         : 12px;
+  background    : rgba(var(--rgb-gold), 0.15);
+  border        : 1px solid rgba(var(--rgb-gold), 0.5);
+  color         : rgba(var(--rgb-gold), 1);
+  font-family   : var(--font-mono);
+  font-size     : 9px;
+  font-weight   : 700;
+  letter-spacing: 0.2em;
+  padding       : 5px 10px;
+  cursor        : pointer;
+  opacity       : 0;
+  transform     : translateY(6px);
+  transition    : opacity 0.2s, transform 0.2s, background 0.15s;
+  z-index       : 3;
+}
+.card-launch:hover { background: rgba(var(--rgb-gold), 0.28); }
+
+/* Contenu texte */
+.card-body   { padding: 14px 16px 18px; }
+.card-system {
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(var(--rgb-gold), 0.5); margin-bottom: 6px;
+}
+.card-title  {
+  font-size: 14px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: rgba(var(--rgb-white), 0.88); margin-bottom: 6px;
+}
+.card-desc   {
+  font-size: 10px; letter-spacing: 0.04em;
+  color: rgba(var(--rgb-white), 0.35); line-height: 1.6;
+}
+.card-tags   { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 10px; }
+.card-tag    {
+  font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase;
+  background: rgba(var(--rgb-white), 0.05); border: 1px solid rgba(var(--rgb-white), 0.08);
+  color: rgba(var(--rgb-white), 0.25); padding: 2px 6px; border-radius: 2px;
+}
+
+/* ── État vide ───────────────────────────────────────────────────── */
+.maps-empty {
+  grid-column: 1 / -1; padding: 48px; text-align: center;
+  font-size: 11px; letter-spacing: 0.1em; color: rgba(var(--rgb-white), 0.2);
+}
+
+/* ── Footer ──────────────────────────────────────────────────────── */
+footer {
+  padding        : 24px 48px;
+  border-top     : 1px solid rgba(var(--rgb-white), 0.04);
+  font-size      : 9px;
+  letter-spacing : 0.12em;
+  color          : rgba(var(--rgb-white), 0.15);
+  display        : flex;
+  justify-content: space-between;
+  align-items    : center;
+}
+.footer-count { color: rgba(var(--rgb-green), 0.5); }

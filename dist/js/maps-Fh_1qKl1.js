@@ -1,0 +1,1 @@
+const a=[{id:"memory-lab",title:"Memory Lab",description:"Laboratoire d'implants mnésiques, niveau -3.",thumbnail:"assets/maps/memory-lab/thumbnail.jpg",system:"Blade Runner",tags:["intérieur","labo"]}];export{a as maps};

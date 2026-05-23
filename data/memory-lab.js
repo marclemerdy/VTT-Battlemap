@@ -1,0 +1,82 @@
+/**
+ * data/memory-lab.js
+ */
+
+// ─── Joueurs (PCs) ────────────────────────────────────────────────
+export const players = [
+  { "id": "PJ_1", "name": "Novak",     "type": "npc", "x": 2300, "y": 1100 },
+  { "id": "PJ_2", "name": "Fenna",     "type": "npc", "x": 2300, "y": 1180 },
+
+];
+
+// ─── PNJs / Ennemis ───────────────────────────────────────────────
+export const npcs = [
+  { "id": "PNJ_W1", "name": "W1",     "type": "npc", "x": 3000, "y": 1250 },
+  { "id": "PNJ_W2", "name": "W2",     "type": "npc", "x": 3000, "y": 1300 },
+  { "id": "PNJ_W3", "name": "W3",     "type": "npc", "x": 3000, "y": 1350 },
+  { "id": "PNJ_1", "name": "Therry",     "type": "npc", "x": 1700, "y": 1250 },
+
+];
+
+// ─── Coordonnées de spawn par défaut ──────────────────────────────
+export const playersCoord = [{ "pc": "1250", "npc": "2250" }];
+
+// ─── Fond de carte ────────────────────────────────────────────────
+export const mapBg = [
+  { "img": "thumbnail.webp", "width": "2634", "height": "3571", "overlay": "0" },
+];
+
+// ─── Dossier des assets de cette map ──────────────────────────────
+export const tilesDir = ["memory-lab"];
+
+// ─── Tuiles décoratives ───────────────────────────────────────────
+export const tiles = [];
+
+// ─── Rooms (brouillard de guerre) ─────────────────────────────────
+export const rooms = [
+  {
+    id    : "room_01",
+    label : "storage",
+    points: [
+      [1514, 615],
+      [1514, 952],
+      [1763, 952],
+      [1763, 615],
+      [1514, 615],
+    ],
+  },
+  {
+    id    : "room_02",
+    label : "office 01",
+    points: [
+      [1177, 699],
+      [1422, 699],
+      [1422, 954],
+      [1178, 952],
+      [1178, 699],
+    ],
+  },
+  {
+    id    : "room_03",
+    label : "office 02",
+    points: [
+      [1394, 616],
+      [1757, 615],
+      [1763, 276],
+      [1392, 274],
+      [1394, 616],
+    ],
+  },
+  {
+    id    : "room_04",
+    label : "office 03",
+    points: [
+      [1096, 273],
+      [1391, 274],
+      [1393, 619],
+      [1096, 619],
+      [1096, 273],
+    ],
+  },
+ {    id    : "room_05",    label : "lab 1",    points: [      [1535, 1402],      [2041, 1411],      [2039, 1853],      [1542, 1855],      [1532, 1404],    ],  }
+];

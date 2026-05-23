@@ -1,0 +1,21 @@
+/**
+ * avatars.css — Images de fond des tokens
+ *
+ * Convention de nommage des fichiers img/ :
+ *   PJ_{id}.png   — joueurs
+ *   PNJ_{id}.png  — personnages non-joueurs
+ */
+
+/* ── Joueurs (PCs) ───────────────────────────────────────────────── */
+.player.PJ_1 { background-image: url("../assets/tokens/PJ_1.webp"); }
+.player.PJ_2 { background-image: url("../assets/tokens/PJ_2.webp"); }
+
+
+/* ── PNJs individuels ────────────────────────────────────────────── */
+.player.PNJ_1 { background-image: url("../assets/tokens/PNJ_1.webp"); }
+
+
+/* ── PNJs groupes (même avatar partagé) ─────────────────────────── */
+.player.PNJ_W1,
+.player.PNJ_W2,
+.player.PNJ_W3  { background-image: url("../assets/tokens/PNJ_W.webp");  }
