@@ -1,6 +1,5 @@
 /* ════════════════════════════════════════════════════════════════
    DESIGN TOKENS — Custom Properties
-   Modifier ici, ça se propage partout.
    ════════════════════════════════════════════════════════════════ */
 :root {
 
@@ -29,8 +28,6 @@
   --t-slow   : 0.3s;
 
   /* ── Stack Z-index ───────────────────────────────────────────────
-     Toute modification ici → se propage à toutes les classes.
-     Garder en phase avec le commentaire dans main.js.
      ──────────────────────────────────────────────────────────────── */
   --z-tiles          : 10;
   --z-token-pc       : 9;
@@ -48,8 +45,6 @@
 
 /* ════════════════════════════════════════════════════════════════
    MODERN CSS RESET
-   Source : Andy Bell — https://piccalil.li/blog/a-more-modern-css-reset/
-   Remplace l'ancienne Normalize.css minifiée (plus légère, plus ciblée).
    ════════════════════════════════════════════════════════════════ */
 *, *::before, *::after  { box-sizing: border-box; }
 *                       { margin: 0; }
@@ -75,11 +70,6 @@ body     { background-color: var(--clr-bg); }
 
 /* ════════════════════════════════════════════════════════════════
    TOKENS
-   ────────────────────────────────────────────────────────────────
-   • Breathing UNIQUEMENT sur .active (drag en cours)
-   • Hover : effet visuel pur — pas d'animation
-   • Rotate : transform complet pour éviter l'écrasement
-     de la rotation par le hover/active
    ════════════════════════════════════════════════════════════════ */
 
 .player {

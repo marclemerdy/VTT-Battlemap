@@ -1,6 +1,6 @@
 /* ════════════════════════════════════════════════════════════════
    launcher.css — Styles du launcher (index.html)
-   Dépend des custom properties définies dans style.css.
+   cf. properties définies dans style.css.
    ════════════════════════════════════════════════════════════════ */
 
 /* ── Reset minimal (launcher est une page autonome) ─────────────── */
@@ -37,7 +37,7 @@ header {
   position      : relative;
 }
 .header-eyebrow {
-  font-size     : 10px;
+  font-size     : 11px;
   letter-spacing: 0.35em;
   color         : rgba(var(--rgb-gold), 0.5);
   text-transform: uppercase;
@@ -53,9 +53,9 @@ header {
 }
 .header-title span { color: rgba(var(--rgb-gold), 1); }
 .header-subtitle {
-  font-size     : 11px;
+  font-size     : 16px;
   letter-spacing: 0.15em;
-  color         : rgba(var(--rgb-white), 0.25);
+  color         : rgba(var(--rgb-white), 0.5);
   margin-top    : 10px;
 }
 
@@ -85,7 +85,7 @@ header {
   border-radius : 3px;
   color         : rgba(var(--rgb-white), 0.3);
   font-family   : var(--font-mono);
-  font-size     : 9px;
+  font-size     : 11px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   padding       : 4px 10px;
@@ -197,7 +197,7 @@ header {
   border        : 1px solid rgba(var(--rgb-gold), 0.5);
   color         : rgba(var(--rgb-gold), 1);
   font-family   : var(--font-mono);
-  font-size     : 9px;
+  font-size     : 11px;
   font-weight   : 700;
   letter-spacing: 0.2em;
   padding       : 5px 10px;
@@ -212,20 +212,20 @@ header {
 /* Contenu texte */
 .card-body   { padding: 14px 16px 18px; }
 .card-system {
-  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  font-size: 13px; letter-spacing: 0.2em; font-weight: 700; text-transform: uppercase;
   color: rgba(var(--rgb-gold), 0.5); margin-bottom: 6px;
 }
 .card-title  {
-  font-size: 14px; font-weight: 700; letter-spacing: 0.1em;
+  font-size: 16px; font-weight: 700; letter-spacing: 0.1em;
   text-transform: uppercase; color: rgba(var(--rgb-white), 0.88); margin-bottom: 6px;
 }
 .card-desc   {
-  font-size: 10px; letter-spacing: 0.04em;
+  font-size: 11px; letter-spacing: 0.04em;
   color: rgba(var(--rgb-white), 0.35); line-height: 1.6;
 }
 .card-tags   { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 10px; }
 .card-tag    {
-  font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase;
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
   background: rgba(var(--rgb-white), 0.05); border: 1px solid rgba(var(--rgb-white), 0.08);
   color: rgba(var(--rgb-white), 0.25); padding: 2px 6px; border-radius: 2px;
 }
@@ -239,10 +239,10 @@ header {
 /* ── Footer ──────────────────────────────────────────────────────── */
 footer {
   padding        : 24px 48px;
-  border-top     : 1px solid rgba(var(--rgb-white), 0.04);
-  font-size      : 9px;
+  border-top     : 1px solid rgba(var(--rgb-white), 0.25);
+  font-size      : 11px;
   letter-spacing : 0.12em;
-  color          : rgba(var(--rgb-white), 0.15);
+  color          : rgba(var(--rgb-white), 0.5);
   display        : flex;
   justify-content: space-between;
   align-items    : center;
